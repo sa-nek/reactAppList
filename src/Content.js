@@ -20,14 +20,15 @@ const Content = ({ items, handleCheckbox, handleDelete, setSave }) => {
     setNewItemCaption("");
     setNewItemDescription("");
   };
+  const searchHadler = (item) =>
+    item.itemName.toLowerCase().includes(searchItem.toLowerCase()) ||
+    item.itemDescription.toLowerCase().includes(searchItem.toLowerCase());
   return (
     <main>
       <SearchItem searchItem={searchItem} setSearchItem={setSearchItem} />
       {items.length ? (
         <ItemList
-          items={items.filter((item) =>
-            item.itemName.toLowerCase().includes(searchItem.toLowerCase())
-          )}
+          items={items.filter(searchHadler)}
           handleCheckbox={handleCheckbox}
           handleDelete={handleDelete}
         />

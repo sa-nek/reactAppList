@@ -4,7 +4,7 @@ main {
   align-items: center;
   width: 100%;
   flex-grow: 1;
-  background-color: rgb(199, 214, 214);
+  background-color: #c7d6d6;
 }
 p {
   padding: 1rem;

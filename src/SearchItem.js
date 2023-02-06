@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles/SearchItemStyle.css";
-import { useState } from "react";
 
 const SearchItem = ({ searchItem, setSearchItem }) => {
   return (
@@ -15,6 +14,7 @@ const SearchItem = ({ searchItem, setSearchItem }) => {
         type="text"
         id="searchInput"
         value={searchItem}
+        autoComplete="off"
         onChange={(e) => setSearchItem(e.target.value)}
       />
     </form>

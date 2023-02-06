@@ -6,4 +6,5 @@
 .authForm input[type="text"] {
   min-height: 2rem;
   padding: 0.5rem;
+  border-radius: 5px;
 }

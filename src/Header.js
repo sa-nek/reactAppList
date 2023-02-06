@@ -1,10 +1,28 @@
 import "./styles/HeaderStyle.css";
-const Header = (atr) => {
+const Header = ({ listName, setListName }) => {
+  const saveNameList = () => {
+    localStorage.setItem("listName", JSON.stringify(listName));
+  };
   return (
     <header>
-      <h1>{atr.title}</h1>
+      <input
+        type="text"
+        autoComplete="off"
+        value={listName}
+        onChange={(e) => {
+          setListName(e.target.value);
+          saveNameList();
+        }}
+        onClick={(e) => {
+          setListName("");
+          saveNameList();
+        }}
+        onBlur={(e) => {
+          e.target.value ? setListName(e.target.value) : setListName("List");
+          saveNameList();
+        }}
+      />
     </header>
   );
 };
-Header.defaultProps = { title: "123123" };
 export default Header;

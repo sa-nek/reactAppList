@@ -7,6 +7,7 @@ li {
   background-color: azure;
   margin: 0.2rem 0 1rem 0;
   word-break: break-all;
+  box-shadow: 5px 5px 10px hsl(210, 3%, 16%);
 }
 .capDes {
   text-align: center;
@@ -26,4 +27,8 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.delIcon:hover {
+  color: rgba(31, 34, 33, 0.351);
+  scale: 3.2;
 }

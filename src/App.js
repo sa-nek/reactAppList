@@ -5,6 +5,11 @@ import { useState } from "react";
 import "./styles/AppStyle.css";
 
 function App() {
+  const [listName, setListName] = useState(
+    localStorage.getItem("listName")
+      ? JSON.parse(localStorage.getItem("listName"))
+      : "List"
+  );
   const setSave = (data) => {
     setItems(data);
     localStorage.setItem("itemsList", JSON.stringify(data));
@@ -27,7 +32,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Header title="Tasks" />
+      <Header listName={listName} setListName={setListName} />
       <Content
         items={items}
         handleCheckbox={handleCheckbox}

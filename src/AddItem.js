@@ -17,10 +17,12 @@ const addItem = ({
     >
       <label htmlFor="caption">Caption</label>
       <input
+        autoFocus
         className="inp"
         required
         type="text"
         id="caption"
+        autoComplete="off"
         value={newItemCaption}
         onChange={(e) => setNewItemCaption(e.target.value)}
       />
@@ -30,6 +32,7 @@ const addItem = ({
         required
         type="text"
         id="description"
+        autoComplete="off"
         value={newItemDescription}
         onChange={(e) => setNewItemDescription(e.target.value)}
       />
