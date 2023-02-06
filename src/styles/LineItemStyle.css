@@ -1,13 +1,19 @@
-li {
+.defaultLi {
   display: flex;
   width: 100%;
   justify-content: space-between;
   min-height: 10vh;
   padding: 1rem;
-  background-color: azure;
+  background-color: rgb(255, 255, 106);
   margin: 0.2rem 0 1rem 0;
   word-break: break-all;
   box-shadow: 5px 5px 10px hsl(210, 3%, 16%);
+}
+.checkedLi {
+  background-color: rgb(196, 255, 136);
+}
+input[type="checkbox"] {
+  scale: 2;
 }
 .capDes {
   text-align: center;
@@ -29,6 +35,6 @@ input[type="checkbox"] {
   align-items: center;
 }
 .delIcon:hover {
-  color: rgba(31, 34, 33, 0.351);
+  color: rgb(177, 169, 15);
   scale: 3.2;
 }

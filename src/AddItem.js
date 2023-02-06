@@ -30,13 +30,15 @@ const AddItem = ({
         onChange={(e) => setNewItemCaption(e.target.value)}
       />
       <label htmlFor="description">Description</label>
-      <input
+      <textarea
         className="inp"
         required
         type="text"
         id="description"
         autoComplete="off"
         value={newItemDescription}
+        cols="40"
+        rows="5"
         onChange={(e) => setNewItemDescription(e.target.value)}
       />
       <button

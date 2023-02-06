@@ -1,9 +1,10 @@
 .authForm {
-  width: 90%;
+  width: 100%;
   padding: 0.1rem;
   margin: 1rem;
 }
 .authForm input[type="text"] {
+  width: 100%;
   min-height: 2rem;
   padding: 0.5rem;
   border-radius: 5px;

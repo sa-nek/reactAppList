@@ -1,11 +1,16 @@
 import "./styles/LineItemStyle.css";
 import { FaTrashAlt } from "react-icons/fa";
+import { useRef } from "react";
 const LineItem = ({ item, handleCheckbox, handleDelete }) => {
+  const liRef = useRef();
   return (
-    <li>
+    <li className="defaultLi" ref={liRef}>
       <input
         type={"checkbox"}
-        onChange={() => handleCheckbox(item.id)}
+        onChange={() => {
+          handleCheckbox(item.id);
+          liRef.current.classList.toggle("checkedLi");
+        }}
         checked={item.isDone}
       />
       <div className="capDes">
