@@ -1,12 +1,14 @@
 import "./styles/AddItemStyle.css";
 import { FaPlusCircle } from "react-icons/fa";
-const addItem = ({
+import { useRef } from "react";
+const AddItem = ({
   newItemCaption,
   setNewItemCaption,
   newItemDescription,
   setNewItemDescription,
   handleAdd,
 }) => {
+  const CaptionRef = useRef();
   return (
     <form
       className="addForm"
@@ -20,6 +22,7 @@ const addItem = ({
         autoFocus
         className="inp"
         required
+        ref={CaptionRef}
         type="text"
         id="caption"
         autoComplete="off"
@@ -36,11 +39,15 @@ const addItem = ({
         value={newItemDescription}
         onChange={(e) => setNewItemDescription(e.target.value)}
       />
-      <button type="submit" className="addBtn">
+      <button
+        type="submit"
+        className="addBtn"
+        onClick={() => CaptionRef.current.focus()}
+      >
         <FaPlusCircle />
       </button>
     </form>
   );
 };
 
-export default addItem;
+export default AddItem;
