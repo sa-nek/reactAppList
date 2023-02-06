@@ -37,8 +37,6 @@ const AddItem = ({
         id="description"
         autoComplete="off"
         value={newItemDescription}
-        cols="40"
-        rows="5"
         onChange={(e) => setNewItemDescription(e.target.value)}
       />
       <button

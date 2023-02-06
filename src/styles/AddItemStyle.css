@@ -5,6 +5,7 @@
 }
 .addForm {
   border: 0.3rem groove rgb(101, 101, 101);
+  min-width: 80vw;
   padding: 1rem;
   display: flex;
   flex-direction: column;
