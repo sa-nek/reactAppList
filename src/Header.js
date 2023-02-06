@@ -1,3 +1,4 @@
+import "./styles/HeaderStyle.css";
 const Header = (atr) => {
   return (
     <header>

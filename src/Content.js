@@ -1,20 +1,33 @@
 import ItemList from "./ItemList";
 import AddItem from "./AddItem";
-const Content = ({
-  items,
-  handleCheckbox,
-  handleDelete,
-  newItemCaption,
-  setNewItemCaption,
-  newItemDescription,
-  setNewItemDescription,
-  handleAdd,
-}) => {
+import { useState } from "react";
+import "./styles/ContentStyle.css";
+import "./SearchItem.js";
+import SearchItem from "./SearchItem.js";
+const Content = ({ items, handleCheckbox, handleDelete, setSave }) => {
+  const [newItemCaption, setNewItemCaption] = useState("");
+  const [newItemDescription, setNewItemDescription] = useState("");
+  const [searchItem, setSearchItem] = useState("");
+  const handleAdd = () => {
+    const newItemObj = {
+      id: items.length ? items[items.length - 1].id + 1 : 1,
+      itemName: newItemCaption,
+      itemDescription: newItemDescription,
+      isDone: false,
+    };
+    const newArr = [...items, newItemObj];
+    setSave(newArr);
+    setNewItemCaption("");
+    setNewItemDescription("");
+  };
   return (
     <main>
+      <SearchItem searchItem={searchItem} setSearchItem={setSearchItem} />
       {items.length ? (
         <ItemList
-          items={items}
+          items={items.filter((item) =>
+            item.itemName.toLowerCase().includes(searchItem.toLowerCase())
+          )}
           handleCheckbox={handleCheckbox}
           handleDelete={handleDelete}
         />

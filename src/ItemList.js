@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles/ItemListStyle.css";
 import LineItem from "./LineItem";
 const ItemList = ({ items, handleCheckbox, handleDelete }) => {
   return (

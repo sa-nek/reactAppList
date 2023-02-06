@@ -1,3 +1,4 @@
+import "./styles/AddItemStyle.css";
 import { FaPlusCircle } from "react-icons/fa";
 const addItem = ({
   newItemCaption,

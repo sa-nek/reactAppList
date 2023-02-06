@@ -1,3 +1,4 @@
+import "./styles/LineItemStyle.css";
 import { FaTrashAlt } from "react-icons/fa";
 const LineItem = ({ item, handleCheckbox, handleDelete }) => {
   return (
@@ -7,7 +8,7 @@ const LineItem = ({ item, handleCheckbox, handleDelete }) => {
         onChange={() => handleCheckbox(item.id)}
         checked={item.isDone}
       />
-      <div>
+      <div className="capDes">
         <h3>{item.itemName}</h3>
         <p>{item.itemDescription}</p>
       </div>
