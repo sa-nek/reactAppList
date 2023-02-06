@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./styles/ContentStyle.css";
 import "./SearchItem.js";
 import SearchItem from "./SearchItem.js";
-const Content = ({ items, handleCheckbox, handleDelete, setSave }) => {
+const Content = ({ items, handleCheckbox, handleDelete, setItems }) => {
   const [newItemCaption, setNewItemCaption] = useState("");
   const [newItemDescription, setNewItemDescription] = useState("");
   const [searchItem, setSearchItem] = useState("");
@@ -16,7 +16,7 @@ const Content = ({ items, handleCheckbox, handleDelete, setSave }) => {
       isDone: false,
     };
     const newArr = [...items, newItemObj];
-    setSave(newArr);
+    setItems(newArr);
     setNewItemCaption("");
     setNewItemDescription("");
   };

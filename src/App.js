@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/AppStyle.css";
 
 function App() {
@@ -10,25 +10,25 @@ function App() {
       ? JSON.parse(localStorage.getItem("listName"))
       : "List"
   );
-  const setSave = (data) => {
-    setItems(data);
-    localStorage.setItem("itemsList", JSON.stringify(data));
-  };
   const [items, setItems] = useState(
     localStorage.getItem("itemsList")
       ? JSON.parse(localStorage.getItem("itemsList"))
       : []
   );
+  useEffect(() => {
+    localStorage.setItem("itemsList", JSON.stringify(items));
+    console.log("items changed");
+  }, [items]);
 
   const handleCheckbox = (id) => {
     const newArr = items.map((item) =>
       item.id === id ? { ...item, isDone: !item.isDone } : { ...item }
     );
-    setSave(newArr);
+    setItems(newArr);
   };
   const handleDelete = (id) => {
     const newArr = items.filter((item) => item.id !== id);
-    setSave(newArr);
+    setItems(newArr);
   };
   return (
     <div className="App">
@@ -37,7 +37,7 @@ function App() {
         items={items}
         handleCheckbox={handleCheckbox}
         handleDelete={handleDelete}
-        setSave={setSave}
+        setItems={setItems}
       />
       <Footer counter={items.length} />
     </div>
